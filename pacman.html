@@ -16,7 +16,7 @@
     
     
     <audio autoplay loop>
-        <source src="assets/Sonic the Hedgehog-Green Hill Zone Theme.mp3 (mp3cut.net).mp3" type="audio/mp3">
+        <source src="assets/Sonic the Hedgehog-Green Hill Zone Theme (mp3cut.net).mp3" type="audio/mp3">
 </audio>
     
     
@@ -226,7 +226,10 @@
         },
 
         eatDot: function (pacman, dot) {
-
+           
+            var audio = new Audio('assets/Sonic Ring Sound Effect.mp3');
+            audio.play()
+            
             dot.kill();
 
             if (this.dots.total === 0)
