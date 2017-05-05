@@ -79,7 +79,7 @@
             this.load.crossOrigin = 'anonymous';
 
             this.load.image('coin', 'assets/coin.png');
-           // this.load.image('dot2', 'assets/dot2.png');
+            this.load.image('dot2', 'assets/dot2.png');
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('sonic2', 'assets/sonic2.png', 0, 0);
             this.load.tilemap('map', 'assets/pacman-map1.json', null, Phaser.Tilemap.TILED_JSON);
@@ -98,7 +98,7 @@
             this.dots = this.add.physicsGroup();
 
             this.map.createFromTiles(7, this.safetile, 'coin', this.layer, this.dots);
-           // this.map.createFromTiles(35, this.safetile, 'dot2', this.layer, this.dots2);
+            this.map.createFromTiles(35, this.safetile, 'dot2', this.layer, this.dots2);
            
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
             this.dots.setAll('x', 6, false, false, 1);
@@ -267,18 +267,22 @@
 
         },
         
-      /*  eatDot2: function (pacman, dot2) {
+        eatDot2: function (pacman, dot2) {
            dot2.kill();
            
            var audio = new Audio('assets/Sonic Checkpoint SFX.mp3');
            audio.play()
            
+	   this.bonus+=50;															//____________________________6/4_____score____________________________
+           this.scoreText.text= 'Score: ' + this.bonus;
+	   this.bonusText.text= 'Bonus: ' + this.bonus;
+		
            if (this.dots.total === 0)
            {
                this.dots.callAll('revive');
            }
            
-        },*/
+        },
         
 
         update: function () {
@@ -286,7 +290,7 @@
             this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
             
-          //  this.physics.arcade.overlap(this.pacman, this.dots2, this.eatDot2, null, this);
+            this.physics.arcade.overlap(this.pacman, this.dots2, this.eatDot2, null, this);
             
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
