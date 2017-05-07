@@ -129,9 +129,9 @@
             
             this.scoreText = game.add.text(10, 0, 'Score: 0', { fontSize: '20px Verdana', fill: '#FF4500' });
 	
-            this.bonusText = game.add.text(150, 0, 'Bonus: 0', { fontSize: '20px Verdana', fill: '#FFFFFF' });
+            this.bonusText = game.add.text(180, 0, 'Bonus: 0', { fontSize: '20px Verdana', fill: '#FFFFFF' });
 		
-            this.livesText = game.add.text(300, 0, 'Lives: 3', { fontSize: '20px Verdana', fill: '#FFFF00' });
+            this.livesText = game.add.text(330, 0, 'Life: 3', { fontSize: '20px Verdana', fill: '#FFFF00' });
 
         },
 
@@ -275,7 +275,7 @@
            audio.play()
            
 	   this.bonus+=50;															//____________________________6/4_____score____________________________
-           this.scoreText.text= 'Score: ' + this.bonus;
+           this.scoreText.text= 'Score: ' + this.score;
 	   this.bonusText.text= 'Bonus: ' + this.bonus;
 		
            if (this.dots.total === 0)
